@@ -84,6 +84,7 @@ const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message: 'Too many request on this ip. Please try again later',
+  validate: { xForwardedForHeader: false },
 });
 
 app.use('/api', limiter);
